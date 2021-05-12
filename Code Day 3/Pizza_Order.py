@@ -5,22 +5,19 @@ bill = 0
 
 if pizza_size == "S":
     bill = 15
-    if add_pepperoni == "Y":
-        bill += 2
-    if extra_chesse == "Y":
-        bill += 1
 elif pizza_size == "M":
     bill = 20
-    if add_pepperoni == "Y":
-        bill += 3
-    if extra_chesse == "Y":
-        bill += 1
 else:
     bill = 25
-    if add_pepperoni == "Y":
+
+if add_pepperoni == "Y":
+    if pizza_size == "S":
+        bill += 2
+    else:
         bill += 3
-    if extra_chesse == "Y":
-        bill += 1
+
+if extra_chesse == "Y":
+    bill += 1
 
 print(f"Your final bill is R${bill}")
 
