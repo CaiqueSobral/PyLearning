@@ -2,6 +2,11 @@ import random
 import hangman_art
 import hangman_words
 
+import os
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
+
 endOfGame = False
 chosenWord = random.choice(hangman_words.wordList)
 
@@ -18,6 +23,11 @@ print(f"{' '.join(display)}")
 
 while not endOfGame:
     guess = input("Guess a letter: ").lower()
+
+    cls()
+
+    if guess in display:
+      print(f"You've already guessed {guess}")
 
     for position in range(len(chosenWord)):
         letter = chosenWord[position]
