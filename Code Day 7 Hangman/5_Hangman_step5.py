@@ -90,4 +90,3 @@ while not endOfGame:
         print("You win")
     
     print(stages[lives])
-    
