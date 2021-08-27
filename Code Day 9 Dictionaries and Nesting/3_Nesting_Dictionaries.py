@@ -12,7 +12,6 @@ travel_log = {
 }
 
 #Nesting Dictionary in a Dictionary
-
 travel_log = {
     "France": {
         "citiesVisited": ["Paris", "Dijon", "Lille"],
@@ -23,3 +22,17 @@ travel_log = {
         "TotalVisits": 8
     }
 }
+
+#Nesting Dictionary in a List
+travel_log = [
+    {   
+        "country":"France",
+        "citiesVisited": ["Paris", "Dijon", "Lille"],
+        "TotalVisits": 12 
+    },
+    {   
+        "country":"Germany",
+        "citiesVisited": ["Berlin", "Hamburgo", "Stuttgart"],
+        "TotalVisits": 8
+    }
+]
