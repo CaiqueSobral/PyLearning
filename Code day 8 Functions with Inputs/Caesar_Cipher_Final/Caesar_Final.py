@@ -30,6 +30,7 @@ while answer == "yes":
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
+    shift = shift % 26
     caesar(text, shift, direction)
     answer = input("Do you want to keep with the program, type ""yes"" or ""no"" \n").lower()
 cls()
