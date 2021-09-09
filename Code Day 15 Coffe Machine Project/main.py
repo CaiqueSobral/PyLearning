@@ -41,6 +41,30 @@ def checkResource(orderIngredients):
             return False
     return True
 
+def processCoins():
+    print("Please insert coins. ")
+    total = int(input("How many quarters?: ")) * 0.25
+    total += int(input("How many dimes?: ")) * 0.1
+    total += int(input("How many nickles?: ")) * 0.05
+    total += int(input("How many pennies?: ")) * 0.01
+    return total
+
+def transactionSuccess(moneyReceived, drinkCost):
+    if moneyReceived >= drinkCost:
+        change = round(moneyReceived - drinkCost, 2)
+        print(f"Here is ${change} in change")
+        global profit
+        profit += drinkCost
+        return True
+    else:
+        print("Sorry that's not enough money, Money refunded.")
+        return False
+
+def makeCoffe(drinkName, orderIngredients):
+    for item in orderIngredients:
+        resources[item] -= orderIngredients[item]
+    print(f"Here is your {drinkName} ☕")
+
 profit = 0
 machineOn = True
 
@@ -57,4 +81,7 @@ while machineOn:
         print(f"Money: ${profit}")
     else:
         drink = MENU[choice]
-        checkResource(drink["ingredients"])
+        if checkResource(drink["ingredients"]):
+            payment = processCoins()
+            if transactionSuccess(payment, drink["cost"]):
+                makeCoffe(choice, drink["ingredients"])
