@@ -1,5 +1,5 @@
-from prettytable import prettytable
+import prettytable
 
-table = prettytable.PrettyTable()
+x = prettytable()
 
-print(table)
+print(x)
